@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+
+public class Game {
+
+  public static void main(String[] args){
+		
+		int[] cardDeck = new int[52];
+		String[] colors = {"Hearts", "Spades", "Diamonds", "Clubs"};
+		int[] figures = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+		String[] players = {"player1", "player2", "player3", "player4", "player5", 
+							"player6", "player7", "player8", "player9", "player10"};
+
+			System.out.println("Let's play a game");
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a number of players (more than 1, maximum 10): ");
+		int numberOfPlayers = input.nextInt();
+			while (numberOfPlayers < 2 || numberOfPlayers > 10){
+				System.out.println("We are sorry, it is not possible to play with this number of players. Please try again.");
+				System.out.print("Enter a number of players (more than 1, maximum 10): ");
+			    numberOfPlayers = input.nextInt();
+			}
+					
+					
+					for (int i = 0; i < cardDeck.length; i++)
+						cardDeck[i] = i;
+					
+					
+						for (int i = 0; i < cardDeck.length; i++){
+							int index  = (int)(Math.random() * cardDeck.length);
+							int temp = cardDeck[i];
+							cardDeck[i] = cardDeck[index];
+							cardDeck[index] = temp;
+						}
+						
+						
+						
+						for (int i = 0; i < 5; i++){
+						String color = colors[cardDeck[i] / 13];
+						int figure = figures[cardDeck[i] % 13];
+						System.out.println("Card number " + cardDeck[i] + ": " + figure + " of " + color);
+							
+					
+					}
+				}
+					
+	}
+	
+	
